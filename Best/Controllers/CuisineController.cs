@@ -16,14 +16,6 @@ namespace Best.Controllers
             _db = db;
         }
 
-        //GOT RID OF CUISINE INDEX VIEW
-        // public ActionResult Index()
-        // {
-        //     List<Cuisine> model = _db.Cuisines.Include(m => m.Restaurant).ToList();
-        //     // ViewBag.RestaurantId = id;
-        //     return View(model);
-        // }
-
         //Cuisine Create: displays a form to make a new cuisine
         public ActionResult Create(int id)
         {
@@ -43,7 +35,7 @@ namespace Best.Controllers
             return RedirectToAction("Details", "Restaurant", new { id = cuisines.RestaurantId });
         }
 
-        //Displays details for a cuisine
+        //Displays details for a cuisine (not using this yet)
         public ActionResult Details(int id)
         {
             Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(m => m.CuisineId == id);

@@ -38,7 +38,7 @@ namespace Best.Controllers
             return RedirectToAction("Index");
         }
 
-        //Restaurant Details: displays list of cuisines for a particular restaurant ("int id" refers to the restaurant's ID)
+        //Restaurant Details: displays list of cuisines for a particular restaurant ("int id" parameter refers to the restaurant's ID)
         public ActionResult Details(int id)
         {
             Console.WriteLine(">>>>>ID passed in to Restaurant Controller Details Method: " + id);

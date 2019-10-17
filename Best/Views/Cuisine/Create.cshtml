@@ -4,15 +4,10 @@
 @using (Html.BeginForm())
 {
     <p>Restaurant Id: @ViewBag.RestaurantId</p>
-    <input type="hidden" name="RestaurantId" value=@ViewBag.RestaurantId />
-
-
+    <input type="hidden" name="RestaurantId" value=@ViewBag.RestaurantId /> //Name attribute needs to EXACTLY match the name of the property (in this case, the RestaurantId property of the Cuisine class) in order to bind the value correctly upon creating the child (Cuisine) object!!!
     @Html.LabelFor(model => model.Name)
     @Html.TextBoxFor(model => model.Name)
     <input type="submit" value="Add new type" class= "btn btn-default" />
 }
-
-
-
 
 <p>@Html.ActionLink("Back To Restaurant", "Details", "Restaurant", new { id = ViewBag.RestaurantId }) </p>                                  
