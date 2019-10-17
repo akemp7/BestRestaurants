@@ -33,7 +33,7 @@ namespace Best.Controllers
         {
             _db.Cuisines.Add(cuisine);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Restaurant");
         }
 
         public ActionResult Details(int id)

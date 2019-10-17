@@ -10,4 +10,4 @@
     <input type= "submit" value = "Add new type" class= "btn btn-default"/>
 }
 
-<p>@Html.ActionLink("Show all types", "Index", "Cuisine") </p>
+<p>@Html.ActionLink("Back To Restaurant", "Details", "Restaurant", new { id= @ViewBag.RestaurantId }) </p>
