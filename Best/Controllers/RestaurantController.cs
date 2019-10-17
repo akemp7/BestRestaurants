@@ -42,7 +42,7 @@ namespace Best.Controllers
         public ActionResult Details(int id)
         {
             Console.WriteLine(">>>>>ID passed in to Restaurant Controller Details Method: " + id);
-            Restaurant thisRestaurant = _db.Restaurants.Include(restaurant => restaurant.Cuisines).FirstOrDefault(rest=> rest.RestaurantId == id);
+            Restaurant thisRestaurant = _db.Restaurants.Include(restaurant => restaurant.Cuisines).FirstOrDefault(rest=> rest.RestaurantId == id); //Need the "Include" portion in order to force the page to re-load the restaurant's Cuisines list, otherwise the cuisine you just added to it won't show up.
             return View(thisRestaurant);
         }
 
