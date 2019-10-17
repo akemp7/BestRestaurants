@@ -42,7 +42,7 @@ namespace Best.Controllers
         public ActionResult Details(int id)
         {
             Console.WriteLine(">>>>>ID passed in to Restaurant Controller Details Method: " + id);
-            Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(rest=> rest.RestaurantId == id);
+            Restaurant thisRestaurant = _db.Restaurants.Include(restaurant => restaurant.Cuisines).FirstOrDefault(rest=> rest.RestaurantId == id);
             return View(thisRestaurant);
         }
 

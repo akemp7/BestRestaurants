@@ -7,9 +7,9 @@
     <p>No cuisines have been added yet!</p>
 }
 <ul>
-@foreach(Cuisine cuisines in Model.Cuisines)
+@foreach(Cuisine cuisine in @Model.Cuisines)
 {
-    <li>cuisines.Name</li>
+    <li><h3>@cuisine.Name<h3></li>
 }
 </ul>
 
