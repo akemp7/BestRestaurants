@@ -46,6 +46,23 @@ namespace Best.Controllers
             return View(thisRestaurant);
         }
 
+        //Restaurant Delete: displays a confirmation page for the restaurant you want to delete
+        public ActionResult Delete(int id)
+        {
+            var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
+            return View(thisRestaurant);
+        }
+
+        //Restaurant Delete Post: deletes restaurant from the database and redirects to Restaurant Index
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
+            _db.Restaurants.Remove(thisRestaurant);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 
 }

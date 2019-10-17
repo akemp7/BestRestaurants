@@ -1,0 +1,11 @@
+
+@model Best.Models.Restaurant
+
+<h2>Are you <em>sure</em> you want to delete @Model.Name?</h2>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Yes, delete it" class="btn btn-default" />
+}
+
+<p>@Html.ActionLink("No, back to restaurant", "Details", "Restaurant", new { id = @Model.RestaurantId })</p>   
