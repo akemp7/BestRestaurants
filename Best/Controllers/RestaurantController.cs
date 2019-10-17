@@ -21,7 +21,18 @@ namespace Best.Controllers
             return View(model);
         }
 
+        public ActionResult Create()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult Create(Restaurant restaurants) //the parameter name "restaurants" refers to the actual table in the database, so it must have the same name as the table otherwise it will yell at you.
+        {
+            _db.Restaurants.Add(restaurants);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
     }
 
