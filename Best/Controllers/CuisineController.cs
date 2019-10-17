@@ -32,13 +32,5 @@ namespace Best.Controllers
             _db.SaveChanges();
             return RedirectToAction("Details", "Restaurant", new { id = cuisines.RestaurantId });
         }
-
-        //Displays details for a cuisine (not using this yet)
-        public ActionResult Details(int id)
-        {
-            Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(m => m.CuisineId == id);
-            return View(thisCuisine);
-        }
-
     }
 }

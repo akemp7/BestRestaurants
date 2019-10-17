@@ -8,10 +8,10 @@
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model => model.Name)
-    @Html.TextBoxFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name, new { @class="form-control"})
 
-    <input type= "submit" value = "Add a new restaurant" class = "btn btn=default"/>
+    <input type="submit" value="Add a new restaurant" class="btn btn-default"/>
 }
 
-<p>@Html.ActionLink("Back to list", "Index", "Restaurant")</p>
+<button class="btn btn-default">@Html.ActionLink("Back to list", "Index", "Restaurant")</button>
 

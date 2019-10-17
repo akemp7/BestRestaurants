@@ -11,11 +11,11 @@
     @Html.HiddenFor(model => model.RestaurantId)
 
     @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
+    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
 
-    <input type="submit" value="Save" />
+    <input type="submit" value="Save" class="btn btn-default"/>
 }
 
-<p>@Html.ActionLink("Back to restaurant", "Details", "Restaurant", new { id = @Model.RestaurantId })</p>
+<button class="btn btn-default">@Html.ActionLink("Back to restaurant", "Details", "Restaurant", new { id = @Model.RestaurantId })</button>
 
-<p>@Html.ActionLink("See full restaurants list", "Index")</p>
+<button class="btn btn-default">@Html.ActionLink("See full restaurants list", "Index")</button>

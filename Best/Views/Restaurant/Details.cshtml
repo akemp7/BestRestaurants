@@ -5,7 +5,9 @@
 @model Best.Models.Restaurant
 @using Best.Models
 
-<h2> Restaurant Details:</h2>
+<h2>@Model.Name</h2>
+<hr />
+<h3>Cuisines available at this restaurant:</h3>
 @if(Model.Cuisines.Count == 0)
 {
     <p>No cuisines have been added yet!</p>
@@ -17,10 +19,10 @@
 }
 </ul>
 
-<p>@Html.ActionLink("Add cuisine to the list", "Create", "Cuisine", new { id = Model.RestaurantId })</p>
+<button class="btn btn-default">@Html.ActionLink("Add cuisine to the list", "Create", "Cuisine", new { id = Model.RestaurantId })</button>
 
-<p>@Html.ActionLink("Edit this restaurant", "Edit", new { id = Model.RestaurantId })</p>
+<button class="btn btn-default">@Html.ActionLink("Edit this restaurant", "Edit", new { id = Model.RestaurantId })</button>
 
-<p>@Html.ActionLink("Delete this restaurant", "Delete", new { id = Model.RestaurantId })</p>
+<button class="btn btn-default">@Html.ActionLink("Delete this restaurant", "Delete", new { id = Model.RestaurantId })</button>
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<button class="btn btn-default">@Html.ActionLink("Back to list", "Index")</button>
