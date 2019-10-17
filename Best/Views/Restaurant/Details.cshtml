@@ -1,0 +1,16 @@
+@model Best.Models.Restaurant
+@using Best.Models
+
+<h2> Restaurant Details:</h2>
+@if(Model.Cuisines.Count == 0)
+{
+    <p>No cuisines have been added yet!</p>
+}
+<ul>
+@foreach(Cuisine cuisines in Model.Cuisines)
+{
+    <li>cuisines.Name</li>
+}
+</ul>
+
+<p>@Html.ActionLink("Add cuisine to the list", "Create", "Cuisine")</p>

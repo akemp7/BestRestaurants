@@ -34,6 +34,12 @@ namespace Best.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Details(int id)
+        {
+            Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(rest=> rest.RestaurantId == id);
+            return View(thisRestaurant);
+        }
+
     }
 
 }
