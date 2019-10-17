@@ -29,11 +29,11 @@ namespace Best.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Cuisine cuisine)
+        public ActionResult Create(int id, Cuisine cuisine)
         {
             _db.Cuisines.Add(cuisine);
             _db.SaveChanges();
-            return RedirectToAction("Details", "Restaurant");
+            return RedirectToAction("Details", "Restaurant", id);
         }
 
         public ActionResult Details(int id)

@@ -3,6 +3,7 @@ using Best.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Best.Controllers
 {
@@ -36,6 +37,7 @@ namespace Best.Controllers
 
         public ActionResult Details(int id)
         {
+            Console.WriteLine(">>>>>ID passed in to Details route of Restaurant Controller: " + id);
             Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(rest=> rest.RestaurantId == id);
             return View(thisRestaurant);
         }
