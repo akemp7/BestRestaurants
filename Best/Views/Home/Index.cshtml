@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <title>Best Restaurants</title>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-    <link href="~/css/styles.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-    <div class="container">
-    <h1>Best places to eat around town</h1>
+@{
+  Layout = "_Layout";
+}
 
-    <p>@Html.ActionLink("See all Restaurants", "Index", "Restaurant")</p>
-    <p>@Html.ActionLink("Add A Restaurant to the System", "Create", "Restaurant")</p>
+<h1>Best places to eat around town</h1>
+
+<p>@Html.ActionLink("See all Restaurants", "Index", "Restaurant")</p>
+<p>@Html.ActionLink("Add A Restaurant to the System", "Create", "Restaurant")</p>
    
-    </div>
-</body>
-</html>
