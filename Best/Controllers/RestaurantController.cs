@@ -3,7 +3,6 @@ using Best.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Best.Controllers
 {
@@ -41,7 +40,6 @@ namespace Best.Controllers
         //Restaurant Details: displays list of cuisines for a particular restaurant ("int id" parameter refers to the restaurant's ID)
         public ActionResult Details(int id)
         {
-            Console.WriteLine(">>>>>ID passed in to Restaurant Controller Details Method: " + id);
             Restaurant thisRestaurant = _db.Restaurants.Include(restaurant => restaurant.Cuisines).FirstOrDefault(rest=> rest.RestaurantId == id); //Need the "Include" portion in order to force the page to re-load the restaurant's Cuisines list, otherwise the cuisine you just added to it won't show up.
             return View(thisRestaurant);
         }
@@ -63,6 +61,20 @@ namespace Best.Controllers
             return RedirectToAction("Index");
         }
 
-    }
+        //Restaurant Edit: displays a page where the user can edit the restaurant's details
+        public ActionResult Edit(int id)
+        {
+            var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
+            return View(thisRestaurant);
+        }
 
+        //Restaurant Edit Post: edits the restaurant's details and redirects to Restaurant Index
+        [HttpPost]
+        public ActionResult Edit(Restaurant restaurant)
+        {
+            _db.Entry(restaurant).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+    }
 }

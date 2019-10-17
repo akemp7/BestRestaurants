@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 
 namespace Best.Controllers
 {
@@ -29,7 +28,6 @@ namespace Best.Controllers
         [HttpPost]
         public ActionResult Create(Cuisine cuisines)
         {
-            // Console.WriteLine(">>>>>ID passed in to Cuisine Controller Create Method: " + id);
             _db.Cuisines.Add(cuisines);
             _db.SaveChanges();
             return RedirectToAction("Details", "Restaurant", new { id = cuisines.RestaurantId });
