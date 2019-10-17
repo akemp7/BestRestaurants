@@ -1,12 +1,18 @@
 @model Best.Models.Cuisine
 
 <h2>Add a type <h2>
-<form action="/Restaurant/Details/@ViewBag.RestaurantId" method="post">
+@using (Html.BeginForm())
+{
+    <p>Restaurant Id: @ViewBag.RestaurantId</p>
+    <input type="hidden" name="RestaurantId" value=@ViewBag.RestaurantId />
+
+
     @Html.LabelFor(model => model.Name)
     @Html.TextBoxFor(model => model.Name)
-    <p>Restaurant Id: @ViewBag.RestaurantId</p>
-    <input type="hidden" name="id" value=@ViewBag.RestaurantId />
-    <button type="submit" class= "btn btn-default">Add new type</button>
-</form>
+    <input type="submit" value="Add new type" class= "btn btn-default" />
+}
 
-<p>@Html.ActionLink("Back To Restaurant", "Details", "Restaurant", new { id = ViewBag.RestaurantId }) </p>
+
+
+
+<p>@Html.ActionLink("Back To Restaurant", "Details", "Restaurant", new { id = ViewBag.RestaurantId }) </p>                                  
